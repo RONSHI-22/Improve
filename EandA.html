@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events & Announcements</title>
+  <link rel="icon" type="img/png" href="pictures/image 2(1) 1.png" />
+  <link rel="stylesheet" href="E&A.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <div class="left-nav">
+          <li>
+            <a href="index.html" class="nav-link">
+              <img src="pictures/image 2(1) 1.png" alt="" style="width:50px; height:50px; margin-right:8px; vertical-align:middle;">
+              kamangagawaparish
+            </a>
+          </li>
+        </div>
+        <div class="right-nav">
+          <li><a href="EandA.html" class="nav-link">events/announcement</a></li>
+        </div>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <!-- Announcements Section -->
+      <div class="section" id="announcementsBox">
+        <h1>ANNOUNCEMENTS</h1>
+        <div id="announcementsContent"></div>
+      </div>
+
+      <!-- Events Section -->
+      <div class="section" id="eventsBox">
+        <h1>EVENTS</h1>
+        <div id="eventsContent"></div>
+        <img id="eventImageTag" style="max-width:100%; margin-top:10px; display:none; border-radius:8px;" />
+      </div>
+    </div>
+  </header>
+
+  <script>
+    const announcementsBox = document.getElementById("announcementsContent");
+    const eventsBox = document.getElementById("eventsContent");
+    const eventsContainer = document.getElementById("eventsBox");
+    const eventImageTag = document.getElementById("eventImageTag");
+
+    async function loadContent() {
+      try {
+        const res = await fetch("/getContent");
+        const data = await res.json();
+
+        announcementsBox.innerText = data.announcements || "No announcements yet.";
+        eventsBox.innerText = data.events || "No events yet.";
+
+        if (data.eventTextColor) {
+          eventsBox.style.color = data.eventTextColor;
+        }
+
+        if (data.eventImage) {
+          eventImageTag.src = data.eventImage;
+          eventImageTag.style.display = "block";
+          eventsContainer.style.backgroundImage = `url('${data.eventImage}')`;
+          eventsContainer.style.backgroundSize = "cover";
+          eventsContainer.style.backgroundPosition = "center";
+          eventsContainer.style.minHeight = "200px";
+        }
+      } catch (err) {
+        console.error("Error loading content:", err);
+      }
+    }
+
+    loadContent();
+  </script>
+</body>
+</html>
+
+</body>
+</html>

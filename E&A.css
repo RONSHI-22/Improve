@@ -1,0 +1,126 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Navigation */
+nav {
+  background: #004d00;
+  color: white;
+  padding: 10px 20px;
+  font-variant: small-caps;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #c6ffb3;
+}
+
+/* Page Container */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  padding: 60px 10%;
+  background: #f7f9f8;
+}
+
+/* Section Cards */
+.section {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.section h1 {
+  font-size: 1.8rem;
+  color: #004d00;
+  border-bottom: 3px solid #004d00;
+  padding-bottom: 8px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+#announcementsContent,
+#eventsContent {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  white-space: pre-wrap;
+}
+
+/* Event background overlay (optional visual polish) */
+#eventsBox {
+  position: relative;
+  overflow: hidden;
+}
+
+#eventsBox::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 0;
+  border-radius: 16px;
+  display: none;
+}
+
+#eventsBox img {
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .container {
+    grid-template-columns: 1fr;
+    padding: 40px 8%;
+  }
+
+  .section h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-link {
+    display: block;
+    margin: 10px 0;
+  }
+
+  .container {
+    padding: 30px 6%;
+  }
+
+  .section {
+    padding: 20px;
+  }
+}

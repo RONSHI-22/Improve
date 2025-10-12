@@ -1,0 +1,48 @@
+
+.section {
+  background: #fff3e6;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: bisque;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.container {
+  display: grid;
+  grid-template-areas:
+    "announcements events"
+    "verse verse"
+    "priests priests";
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.section {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Positioning each section */
+.section:nth-of-type(1) { grid-area: announcements; } /* Announcements */
+.section:nth-of-type(2) { grid-area: events; }        /* Events */
+.section:nth-of-type(3) { grid-area: verse; }         /* Verse */
+.section:nth-of-type(4) { grid-area: priests; }       /* Priests */
+

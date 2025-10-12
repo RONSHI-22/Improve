@@ -1,0 +1,462 @@
+/* --- RESET --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* --- BODY --- */
+body {
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  background-color: #f5fff5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* --- HEADER --- */
+header {
+  background: linear-gradient(90deg, #006400, #228b22);
+  padding: 10px 20px;
+  position: relative;
+  z-index: 10;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+nav ul {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-variant: small-caps;
+}
+
+nav .nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav .nav-link:hover {
+  color: #c8facc;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* --- TOP BANNER --- */
+.landingP {
+  position: relative; /* needed for overlay positioning */
+  background: url("../pictures/BG2.jpg") center/cover no-repeat;
+  text-align: center;
+  padding: 100px 20px;
+  color: white;
+  background-attachment: fixed;
+  z-index: 1; /* ensure content stays above overlay */
+  overflow: hidden; /* prevent pseudo-element overflow */
+}
+
+.landingP::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* adjust opacity: 0.3–0.6 for desired darkness */
+  z-index: -1; /* keeps overlay behind the text */
+}
+#newss {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+#mword {
+  font-size: 18px;
+  margin: 15px auto 30px;
+  max-width: 700px;
+}
+
+.button-group button {
+  background-color: #006400;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 10px;
+  transition: background 0.3s;
+}
+
+.button-group button:hover {
+  background-color: #00a000;
+}
+
+/* --- MAIN CONTENT --- */
+main {
+  flex: 1;
+  padding: 40px 5%;
+}
+
+/* Grid layout for app info + images */
+#container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+  background: #e8fbe8;
+  border-radius: 12px;
+  padding: 40px;
+}
+
+.textContainer h3 {
+  color: #006400;
+  margin-bottom: 15px;
+}
+
+.textContainer p {
+  color: #222;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.imgs img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+}
+
+/* --- MAP + INFO SECTION --- */
+h2 {
+  text-align: center;
+  color: #006400;
+  margin-top: 60px;
+  margin-bottom: 20px;
+}
+
+.map-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: start;
+  background: #f0fff0;
+  border-radius: 12px;
+  padding: 30px;
+}
+
+#map {
+  width: 100%;
+  height: 300px;
+  border-radius: 10px;
+}
+
+.boxs {
+  background: #e8fbe8;
+  border-radius: 10px;
+  padding: 20px;
+  color: #004d00;
+}
+
+.boxs h3 {
+  margin-bottom: 10px;
+  color: #006400;
+}
+
+/* --- HISTORY --- */
+.history {
+  margin-top: 60px;
+  background: #e8fbe8;
+  padding: 40px 20px;
+  border-radius: 12px;
+  color: #003300;
+}
+
+.history h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #004d00;
+}
+
+.history-content {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* --- FOOTER --- */
+footer {
+  background: #004d00;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: auto;
+}
+
+footer .footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 30px;
+}
+
+footer .footer-section {
+  flex: 1 1 250px;
+  min-width: 200px;
+}
+
+footer .footer-section h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #9eff9e;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+footer li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+footer li a:hover {
+  color: #9eff9e;
+}
+
+footer img {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+footer p {
+  margin-top: 15px;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* --- BACK TO TOP BUTTON --- */
+#backToTop {
+  display: none;
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: #006400;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 12px 16px;
+  cursor: pointer;
+  font-size: 20px;
+  box-shadow: 0px 3px 8px rgba(0,0,0,0.3);
+  transition: background 0.3s;
+}
+
+#backToTop:hover {
+  background-color: #00a000;
+}
+footer li:hover{
+  color: #9eff9e;
+}
+
+/* --- RESPONSIVE DESIGN --- */
+
+/* Tablets */
+@media (max-width: 900px) {
+  #container, .map-container {
+    grid-template-columns: 1fr;
+  }
+
+  #newss {
+    font-size: 32px;
+  }
+
+  .button-group button {
+    font-size: 15px;
+    padding: 10px 20px;
+  }
+
+  /* Stack nav vertically */
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  /* Footer adjusts to two columns */
+  footer .footer-content {
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  footer .footer-section {
+    flex: 1 1 45%;
+    text-align: center;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .landingP {
+    padding: 70px 15px;
+    background-attachment: scroll;
+  }
+
+  #newss {
+    font-size: 26px;
+  }
+
+  #mword {
+    font-size: 15px;
+  }
+
+  /* Mobile nav stacked */
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  nav .nav-link {
+    font-size: 16px;
+  }
+
+  /* Mobile footer stacked */
+  footer .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  footer .footer-section {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  footer li {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  footer p {
+    margin-top: 20px;
+    font-size: 13px;
+  }
+}
+
+
+/* --- 7 SACRAMENTS SECTION --- */
+.sacraments {
+  margin-top: 60px;
+  text-align: center;
+  padding: 40px 20px;
+  background: #e8fbe8;
+  border-radius: 12px;
+}
+
+.sacraments h2 {
+  color: #004d00;
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.sacrament-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  justify-items: center;
+}
+
+.sacrament-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 300px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  color: #004d00;
+}
+
+.sacrament-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.sacrament-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.sacrament-card h3 {
+  color: #006400;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.sacrament-card p {
+  color: #333;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .sacrament-card {
+    max-width: 100%;
+  }
+
+  .sacrament-card img {
+    height: 160px;
+  }
+
+  .sacraments h2 {
+    font-size: 22px;
+  }
+}

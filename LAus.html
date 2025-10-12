@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>learn about us</title>
+    <link rel="icon" type="img/png" href="pictures/image 2(1) 1.png">
+    <link rel="stylesheet" href="LAus.css">
+    <script src="FUNCTION.js"></script>
+</head>
+<body>
+<header>
+
+<nav>
+  <ul>
+    <div class="left-nav">
+      <li>
+        <a href="index.html" class="nav-link">
+          <img src="pictures/image 2(1) 1.png" alt="" style="width:50px; height:50px; margin-right:8px; vertical-align:middle;">
+          kamangagawaparish
+        </a>
+      </li>
+    </div>
+    <div class="right-nav">
+      <li><a href="EandA.html" class="nav-link">events/announcement</a></li>
+    </div>
+  </ul>
+</nav>
+
+</header>
+<div class="container">
+  <h1>PRIEST AND STAFF</h1>
+  <div id="priestContainer"></div>
+</div>
+
+<script>
+  async function loadPriests() {
+    const res = await fetch("/getPriests");
+    const priests = await res.json();
+    const container = document.getElementById("priestContainer");
+    container.innerHTML = "";
+    priests.forEach(p => {
+      container.innerHTML += `
+        <div class="priest">
+          <img src="${p.image}" alt="${p.name}">
+          <div class="priest-info">
+            <h3>${p.name}</h3>
+            <p>${p.description}</p>
+          </div>
+        </div>
+      `;
+    });
+  }
+  loadPriests();
+</script>
+
+
+
+<footer>
+<ul id="feet">
+<li>
+  <a href="contactUs.html">
+  <img src="pictures/email 1.png" alt="" style="width:20px; height:20px; margin-right:8px; vertical-align:middle;">
+  contact us 
+  </a>
+</li>
+<li id="gal">
+  <img src="pictures/holy-bible.png" alt="" style="width:20px; height:20px; margin-right:8px; vertical-align:middle;">
+  verse of the day
+</li>
+<li id="L">
+  <img src="pictures/user 1.png" alt="" style="width:20px; height:20px; margin-right:8px; vertical-align:middle;">
+  learn about us
+</li>
+</ul>
+</footer>
+</body>
+</html>

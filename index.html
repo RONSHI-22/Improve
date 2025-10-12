@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KAMANGGAGAWA PARISH</title>
+<link rel="icon" type="img/png" href="pictures/image 2(1) 1.png">
+<link rel="stylesheet" href="design.css">
+<script src="FUNCTION.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <ul>
+      <div class="left-nav">
+        <li>
+          <a href="index.html" class="nav-link">
+            <img src="pictures/image 2(1) 1.png" alt="Logo" class="logo">
+            kamangagawaparish
+          </a>
+        </li>
+      </div>
+
+      <div class="right-nav">
+        <li><a href="EandA.html" class="nav-link">events/announcement</a></li>
+      </div>
+    </ul>
+  </nav>
+</header>
+
+<div class="landingP">
+  <h1 id="newss">NEW LIFE STARTS HERE!</h1>
+  <h3 id="mword">Together, we build faith and hope. The future shines brighter when we stand as one.</h3>
+
+  <div class="button-group">
+    <a href="application1/church.zip" download="church.zip">
+      <button id="app">Download Our App</button>
+    </a>
+    <button id="wa">Watch Online</button>
+  </div>
+</div>
+
+<!-- Main content area -->
+<main>
+  <div id="container">
+    <div class="textContainer">
+      <h3 id="ap">How to Install Our App</h3>
+      <p>
+        1. Download the app here <br>
+        2. Extract the zip file after you download our app <br>
+        3. Install the app, make a reservation, and enjoy!
+      </p>
+      <p class="text2">
+        Download our app now so you can schedule your wedding, baptism,
+        first communion, and more! With our app, you can easily make a
+        reservation without going manually to our church.
+      </p>
+    </div>
+
+    <div class="imgs">
+      <img id="slideshow" src="/pictures/appIMG1.jpg" alt="App Screenshot">
+    </div>
+  </div>
+
+  <!-- VISIT US -->
+  <h2>VISIT US HERE</h2>
+  <div class="map-container">
+    <div class="boxs">
+      <h3>Parish Information</h3>
+      <p><b>San Jose Manggagawa Parish</b></p>
+      <p>Montalban, Rizal</p>
+      <p>
+        Mass Schedule:<br>
+        Mon–Sat: 6 AM, 6 PM<br>
+        Sunday: 6 AM, 8 AM, 10 AM
+      </p>
+    </div>
+    <div id="map"></div>
+  </div>
+
+  <!-- HISTORY -->
+  <div class="history">
+    <div class="history-content">
+      <h2>Our History</h2>
+      <p>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+        when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+      </p>
+    </div>
+  </div>
+
+  <!-- 7 SACRAMENTS SECTION -->
+  <section class="sacraments">
+    <h2>Sacraments & services</h2>
+    <div id="sacrament-list" class="sacrament-grid"></div>
+  </section>
+</main>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="backToTop" title="Go to top">↑</button>
+
+<!-- FOOTER -->
+<footer>
+  <ul id="feet">
+    <li>
+      <a href="contactUs.html">
+        <img src="pictures/email 1.png" alt="" style="width:20px; height:20px; margin-right:8px; vertical-align:middle;">
+        Contact Us 
+      </a>
+    </li>
+    <li id="gal">
+      <img src="pictures/holy-bible.png" alt="" style="width:20px; height:20px; margin-right:8px; vertical-align:middle;">
+      Verse of the Day
+    </li>
+    <li id="L">
+      <img src="pictures/user 1.png" alt="" style="width:20px; height:20px; margin-right:8px; vertical-align:middle;">
+      Learn About Us
+    </li>
+  </ul>
+</footer>
+
+<!-- Leaflet Map JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
+<script>
+// Initialize Leaflet Map
+var map = L.map('map').setView([14.731679, 121.135463], 15);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
+L.marker([14.731679, 121.135463]).addTo(map)
+  .bindPopup('<b>SAN JOSE MANGGAGAWA PARISH</b><br>Montalban, Rizal')
+  .openPopup();
+L.Control.geocoder().addTo(map);
+
+// Fetch and display Sacraments
+fetch('/getSacraments')
+  .then(res => res.json())
+  .then(data => {
+    const container = document.getElementById('sacrament-list');
+    if (data.length === 0) {
+      container.innerHTML = "<p>No sacraments available at the moment.</p>";
+      return;
+    }
+    container.innerHTML = data.map(sac => `
+      <div class="sacrament-card">
+        <img src="${sac.image}" alt="${sac.title}">
+        <h3>${sac.title}</h3>
+        <p>${sac.description}</p>
+      </div>
+    `).join('');
+  })
+  .catch(err => console.error(err));
+</script>
+
+</body>
+</html>
+
+
+<!--    background: 
+        linear-gradient(to right, #1e3c72 50%, transparent 50%), 
+        url('your-image.jpg');  pang malupitang backgrund-->
