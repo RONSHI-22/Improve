@@ -18,29 +18,52 @@ body {
 /* --- HEADER --- */
 header {
   background: linear-gradient(90deg, #006400, #228b22);
-  padding: 10px 20px;
-  position: relative;
-  z-index: 10;
+  padding: 10px 40px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
-nav {
+/* Navbar layout */
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
 }
 
-nav ul {
+/* Left section (Logo + title) */
+.nav-left {
   display: flex;
-  justify-content: flex-end;
   align-items: center;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  gap: 8px;
+}
+
+.logo {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+/* Right section (links) */
+.nav-right {
   list-style: none;
-  gap: 20px;
-  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
   font-variant: small-caps;
 }
 
-nav .nav-link {
+.nav-link {
   color: #fff;
   text-decoration: none;
   font-size: 18px;
@@ -48,9 +71,10 @@ nav .nav-link {
   transition: color 0.3s;
 }
 
-nav .nav-link:hover {
+.nav-link:hover {
   color: #c8facc;
 }
+
 
 .logo {
   width: 50px;
