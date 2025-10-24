@@ -10,14 +10,15 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: linear-gradient(135deg, #004d00, #006600);
+  background: linear-gradient(135deg, #000000, #001f3f); /* black to deep navy */
   color: white;
 }
 
 /* HEADER / NAVBAR */
 header {
-  background-color: rgba(0, 50, 0, 0.8);
+  background-color: rgba(0, 0, 30, 0.85);
   padding: 10px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
 nav ul {
@@ -33,10 +34,11 @@ nav ul {
   text-decoration: none;
   font-weight: bold;
   font-size: 18px;
+  transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-  color: #00ff99;
+  color: #00aaff; /* bright cyan blue */
 }
 
 /* MAIN CONTENT */
@@ -58,29 +60,34 @@ main {
 
 /* BOX STYLE */
 .box-wrap {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 15px;
   padding: 20px;
-  transition: transform 0.3s, background 0.3s;
+  transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 10px rgba(0, 0, 80, 0.3);
 }
 
 .box-wrap:hover {
   transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 50, 0.3);
+  box-shadow: 0 6px 18px rgba(0, 150, 255, 0.3);
 }
 
 .box-wrap h1 {
   margin-bottom: 10px;
   font-size: 22px;
-  color: #00ff99;
+  color: #00aaff;
+  text-shadow: 0 0 6px rgba(0, 170, 255, 0.6);
 }
 
 .box {
   background: rgba(0, 0, 0, 0.6);
   border-radius: 10px;
   padding: 15px;
+  border: 1px solid rgba(0, 150, 255, 0.2);
 }
 
+/* CONTENT ALIGNMENT */
 .content {
   display: flex;
   align-items: center;
@@ -92,6 +99,8 @@ main {
   width: 60px;
   height: 60px;
   border-radius: 50%;
+  border: 2px solid #00aaff;
+  box-shadow: 0 0 8px rgba(0, 170, 255, 0.5);
 }
 
 .label {
@@ -100,38 +109,44 @@ main {
 
 /* TEXT CONTAINER */
 .textContainer {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 15px;
   padding: 25px;
   margin-bottom: 50px;
+  box-shadow: 0 4px 12px rgba(0, 0, 80, 0.3);
 }
 
 .textContainer h2 {
-  color: #00ff99;
+  color: #00aaff;
   margin-bottom: 15px;
   font-size: 24px;
+  text-shadow: 0 0 6px rgba(0, 170, 255, 0.6);
 }
 
 .textContainer p {
   line-height: 1.6;
-  color: #fff;
+  color: #e0f0ff;
   font-size: 16px;
 }
 
 /* FOOTER */
 .footer {
-  background-color: #003300;
+  background: linear-gradient(135deg, #000000, #001f3f);
   text-align: center;
   padding: 15px;
   color: white;
-  margin-top: auto; /* ✅ keeps it at bottom when content is short */
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 -3px 8px rgba(0, 0, 0, 0.5);
 }
 
 .footer ul {
   list-style: none;
   display: flex;
   justify-content: center;
+  gap: 25px;
   padding: 0;
+  margin: 0;
 }
 
 .footer li a {
@@ -140,10 +155,11 @@ main {
   font-size: 18px;
   display: inline-flex;
   align-items: center;
+  transition: color 0.3s ease;
 }
 
 .footer li a:hover {
-  color: #00ff99;
+  color: #00aaff;
 }
 
 /* RESPONSIVE DESIGN */
@@ -159,7 +175,7 @@ main {
   }
 }
 
-/* Small screens (stack boxes vertically) */
+/* Small screens */
 @media (max-width: 600px) {
   nav ul {
     flex-direction: column;
@@ -167,7 +183,7 @@ main {
   }
 
   .container {
-    grid-template-columns: 1fr; /* ✅ stack vertically */
+    grid-template-columns: 1fr;
   }
 
   .textContainer {
@@ -177,5 +193,10 @@ main {
 
   .footer {
     font-size: 14px;
+  }
+
+  .footer ul {
+    flex-direction: column;
+    gap: 10px;
   }
 }
