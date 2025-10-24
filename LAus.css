@@ -75,7 +75,7 @@ li {
 /* BODY */
 body {
   margin: 0;
-  height: 100vh;
+  min-height: 100vh; /* ✅ allows page to grow with content */
   display: flex;
   flex-direction: column;
   background: linear-gradient(180deg, #0d1117, #111827); /* dark layered blue background */
@@ -95,8 +95,9 @@ body.fade-out {
   background-color: rgba(10, 20, 30, 0.8); /* deep navy */
   padding: 20px;
   border-radius: 10px;
+  width: 90%; /* ✅ flexible width for all devices */
   max-width: 700px;
-  margin: 20px auto;
+  margin: 40px auto; /* spacing from top and bottom */
   color: #e0f0ff;
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);
   box-shadow: 0 4px 12px rgba(0, 0, 255, 0.2);
@@ -140,8 +141,10 @@ body.fade-out {
 
 /* FOOTER */
 footer {
+  margin-top: auto; /* ✅ pushes footer to bottom only if space allows */
   width: 90%;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   background: linear-gradient(135deg, #000000, #0047ab);
   backdrop-filter: blur(10px);
   padding: 20px;
