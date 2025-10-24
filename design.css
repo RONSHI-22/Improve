@@ -20,29 +20,31 @@ header {
   background: linear-gradient(90deg, #000000, #0077ff);
   padding: 10px 40px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  position: relative;
 }
 
-/* Navbar layout */
+/* --- NAVBAR USING GRID --- */
 .navbar {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: auto 1fr;
   align-items: center;
-  flex-wrap: wrap;
+  gap: 20px;
 }
 
-/* Left section (Logo + title) */
+/* Logo + title */
 .nav-left {
   display: flex;
   align-items: center;
+  gap: 10px;
 }
 
 .nav-logo {
-  display: flex;
-  align-items: center;
   text-decoration: none;
   color: #ffffff;
   font-size: 20px;
   font-weight: bold;
+  display: flex;
+  align-items: center;
   gap: 8px;
 }
 
@@ -52,14 +54,14 @@ header {
   border-radius: 50%;
 }
 
-/* Right section (links) */
+/* --- NAV LINKS --- */
 .nav-right {
-  list-style: none;
-  display: flex;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: end;
   align-items: center;
   gap: 25px;
-  margin: 0;
-  padding: 0;
+  list-style: none;
   font-variant: small-caps;
 }
 
@@ -73,6 +75,14 @@ header {
 
 .nav-link:hover {
   color: #66b3ff;
+}
+
+/* --- MOBILE NAV TOGGLE (HAMBURGER) --- */
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 26px;
+  color: #fff;
 }
 
 /* --- TOP BANNER --- */
@@ -274,7 +284,58 @@ h2 {
   line-height: 1.5;
 }
 
-/* RESPONSIVE */
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 900px) {
+  /* Navbar grid collapses */
+  .navbar {
+    grid-template-columns: auto auto;
+  }
+
+  .nav-right {
+    display: none; /* Hidden by default on mobile */
+    grid-template-columns: 1fr;
+    background: #000a1f;
+    border-radius: 8px;
+    position: absolute;
+    top: 65px;
+    right: 40px;
+    width: 180px;
+    padding: 15px;
+  }
+
+  .nav-right.active {
+    display: grid;
+  }
+
+  .menu-toggle {
+    display: block;
+    justify-self: end;
+  }
+
+  /* Main content grid stacks */
+  #container,
+  .map-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .imgs img {
+    max-width: 100%;
+  }
+
+  .landingP {
+    padding: 80px 15px;
+  }
+
+  #newss {
+    font-size: 32px;
+  }
+
+  #mword {
+    font-size: 16px;
+  }
+}
+
 @media (max-width: 600px) {
   .sacrament-card {
     max-width: 100%;
@@ -287,4 +348,97 @@ h2 {
   .sacraments h2 {
     font-size: 22px;
   }
+
+  header {
+    padding: 10px 20px;
+  }
 }
+
+
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 28px;
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+
+/* --- MOBILE MENU STYLE --- */
+@media (max-width: 900px) {
+  .menu-toggle {
+    display: block;
+    justify-self: end;
+  }
+
+  /* Default hidden state */
+  .nav-right {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(0, 10, 31, 0.95);
+    border-radius: 12px;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    width: 85%;
+    padding: 20px 0;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    animation: slideUp 0.3s ease forwards;
+  }
+
+  /* Active (visible) menu */
+  .nav-right.active {
+    display: flex;
+    animation: slideDown 0.3s ease forwards;
+  }
+
+  /* Animation for dropdown */
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+  }
+
+  /* Each list item */
+  .nav-right li {
+    list-style: none;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Each link */
+  .nav-link {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s ease;
+  }
+
+  .nav-link:hover {
+    background: rgba(0, 119, 255, 0.2);
+    border-radius: 6px;
+  }
+}
+
+
