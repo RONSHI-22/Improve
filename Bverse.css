@@ -43,6 +43,11 @@ nav ul {
 .nav-link:hover {
   color: #66b3ff; /* light blue hover */
 }
+.logo {
+  width: 200px;
+  height: 50px;
+  border-radius: 50%;
+}
 
 /* Main Section */
 main {
