@@ -7,8 +7,6 @@
 <link rel="icon" type="img/png" href="pictures/image 2(1) 1.png">
 <link rel="stylesheet" href="design.css">
 <script src="FUNCTION.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-<link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
 </head>
 
 <body>
@@ -57,29 +55,31 @@
       </p>
       <p class="text2">
         Download my game here now so you can play games offline when you 
-        dont have a internet and also i post some visual novel here 
+        don’t have internet and also I post some visual novels here.
       </p>
     </div>
 
     <div class="imgs">
-      <img id="slideshow" src="/pictures/appIMG1.jpg" alt="App Screenshot">
+      <img id="slideshow" src="pictures/minecraft.webp" alt="App Screenshot">
     </div>
   </div>
 
-  <!-- VISIT US -->
-  <h2>VISIT US HERE</h2>
-  <div class="map-container">
+  <!-- VISIT US (Replaced map with video) -->
+  <div class="video-container">
     <div class="boxs">
-      <h3>You can buy my game here</h3>
-      <p><b>ronshi game store</b></p>
+      <h3>Check out our latest trailer!</h3>
+      <p><b>Ronshi Game Studio</b></p>
       <p>Montalban, Rizal</p>
       <p>
-        open hours:<br>
-        Mon–Sat: 6 AM, 6 PM<br>
-        Sunday: 6 AM, 8 AM, 10 AM
+        Watch the gameplay preview below and explore more of our visual novels and offline games.
       </p>
     </div>
-    <div id="map"></div>
+
+    <!-- Replace "video.mp4" with your actual video file -->
+    <video controls width="100%" poster="pictures/appIMG1.jpg">
+      <source src="videos/video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
   </div>
 
   <!-- HISTORY -->
@@ -95,26 +95,14 @@
     </div>
   </div>
 
-  <!-- 7 SACRAMENTS SECTION -->
+  <!-- Game and novel Section -->
   <section class="sacraments">
-    <h2>list of Visual Novels & Games</h2>
+    <h2>List of Visual Novels & Games</h2>
     <div id="sacrament-list" class="sacrament-grid"></div>
   </section>
 </main>
 
-<!-- Leaflet Map JS -->
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
-
 <script>
-// Initialize Leaflet Map
-var map = L.map('map').setView([14.731679, 121.135463], 15);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
-L.marker([14.731679, 121.135463]).addTo(map)
-  .bindPopup('<b>SAN JOSE MANGGAGAWA PARISH</b><br>Montalban, Rizal')
-  .openPopup();
-L.Control.geocoder().addTo(map);
-
 // Fetch and display Sacraments
 fetch('/getSacraments')
   .then(res => res.json())
@@ -137,7 +125,6 @@ fetch('/getSacraments')
 
 </body>
 </html>
-
 
 <!--    background: 
         linear-gradient(to right, #1e3c72 50%, transparent 50%), 

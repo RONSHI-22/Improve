@@ -66,10 +66,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 document.addEventListener("DOMContentLoaded", () => {
   const images = [
-    "pictures/appIMG2.jpg",
-    "pictures/appIMG3.jpg",
-    "pictures/appIMG4.jpg",
-    "pictures/appIMG1.jpg"
+    "pictures/ML.jpg",
+    "pictures/nove;.webp",
+    "pictures/pvz.jpg"
   ];
 
   let index = 0;
