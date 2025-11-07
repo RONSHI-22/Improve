@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>verse of the the day</title>
+    <title>Verse of the Day</title>
     <link rel="icon" type="img/png" href="pictures/image 2(1) 1.png">
     <link rel="stylesheet" href="Bverse.css">
-    <script src="FUNCTION.js"></script>
 </head>
 <body>
   <header>
@@ -14,10 +13,9 @@
       <ul>
         <div class="left-nav">
           <li>
-          <a href="index.html" class="nav-logo">
-            <img src="pictures/logo-light-transparent.png" alt="Logo" class="logo">
-            <span></span>
-          </a>
+            <a href="index.html" class="nav-logo">
+              <img src="pictures/logo-light-transparent.png" alt="Logo" class="logo">
+            </a>
           </li>
         </div>
         <div class="right-nav">
@@ -36,47 +34,43 @@
     </div>
   </main>
 
+  <footer>
+    <ul id="feet">
+      <li>
+        <a href="contactUs.html">
+          <img src="pictures/email 1.png" alt="" style="width:20px; height:20px; margin-right:8px; vertical-align:middle;">
+          Contact Us
+        </a>
+      </li>
+      <li id="gal">
+        <img src="pictures/holy-bible.png" alt="" style="width:20px; height:20px; margin-right:8px; vertical-align:middle;">
+        Say of the Day
+      </li>
+      <li id="L">
+        <img src="pictures/user 1.png" alt="" style="width:20px; height:20px; margin-right:8px; vertical-align:middle;">
+        Learn About Us
+      </li>
+    </ul>
+  </footer>
+
 <script>
-  async function loadVerse() {
-    try {
-      const res = await fetch("/getContent");
-      const data = await res.json();
+const backend = "http://localhost:3020";
 
-      // Show verse text
-      document.getElementById("verseContent").textContent = data.verse || "No verse saved yet.";
+async function loadVerse() {
+  try {
+    const res = await fetch(`${backend}/getContent`);
+    const data = await res.json();
 
-      // Show verse author/name
-      document.getElementById("verseName").textContent = data.verseName 
-        ? `– ${data.verseName}` 
-        : "";
-    } catch (err) {
-      console.error("Error loading verse:", err);
-      document.getElementById("verseContent").textContent = "Error loading verse.";
-    }
+    document.getElementById("verseContent").textContent = data.verse || "No verse saved yet.";
+    document.getElementById("verseName").textContent = data.verseName ? `– ${data.verseName}` : "";
+  } catch (err) {
+    console.error("Error loading verse:", err);
+    document.getElementById("verseContent").textContent = "Error loading verse.";
   }
+}
 
-  // Load verse when page opens
-  loadVerse();
+// Load verse when page opens
+loadVerse();
 </script>
-
-<footer>
-<ul id="feet">
-<li>
-  <a href="contactUs.html">
-  <img src="pictures/email 1.png" alt="" style="width:20px; height:20px; margin-right:8px; vertical-align:middle;">
-  contact us 
-  </a>
-</li>
-<li id="gal">
-  <img src="pictures/holy-bible.png" alt="" style="width:20px; height:20px; margin-right:8px; vertical-align:middle;">
-  Say of the day
-</li>
-<li id="L">
-  <img src="pictures/user 1.png" alt="" style="width:20px; height:20px; margin-right:8px; vertical-align:middle;">
-  learn about us
-</li>
-</ul>
-</footer>
-
 </body>
 </html>
